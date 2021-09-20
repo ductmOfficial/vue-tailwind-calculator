@@ -1,56 +1,232 @@
 <template>
-  <div class="calculator">
-    <div class="formula-screen" v-text="formula"></div>
-    <div id="display" class="output-screen" v-text="currVal"></div>
-    <div class="input-screen">
-      <div id="clear" data-value="AC" @click="initialize">AC</div>
-      <div id="divide" data-value="/" @click="oparatorClicked($event)">
-        /
+  <div
+    class="mx-auto overflow-hidden mt-10 shadow-lg mb-2 bg-purple-900 shadow-lg border rounded-lg lg:w-2/6 md:w-3/6 sm:w-4/6"
+  >
+    <div class="">
+      <div class="p-5 text-white text-center text-3xl bg-purple-900">
+        <span class="text-pink-500">Calcu</span>lator
       </div>
-      <div id="multiply" data-value="x" @click="oparatorClicked($event)">
-        x
+      <div
+        class="p-5 pb-0 text-white text-right text-2xl bg-purple-800"
+        v-text="formula"
+      ></div>
+      <div
+        class="p-5 text-pink-500 text-right text-4xl bg-purple-800"
+        v-text="currVal"
+      ></div>
+
+      <div class="flex items-stretch h-24">
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="AC"
+            @click="initialize"
+            class="rounded-full h-20 w-72 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            AC
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="/"
+            @click="oparatorClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            ÷
+          </div>
+        </div>
       </div>
-      <div id="seven" data-value="7" @click="numberClicked($event)">
-        7
+
+      <div class="flex items-stretch h-24">
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="7"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            7
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="8"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            8
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="9"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            9
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="x"
+            @click="oparatorClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            ×
+          </div>
+        </div>
       </div>
-      <div id="eight" data-value="8" @click="numberClicked($event)">
-        8
+
+      <div class="flex items-stretch h-24">
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="4"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            4
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="5"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            5
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="6"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            6
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="‑"
+            @click="oparatorClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            -
+          </div>
+        </div>
       </div>
-      <div id="nine" data-value="9" @click="numberClicked($event)">
-        9
+
+      <div class="flex items-stretch h-24">
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="1"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            1
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="2"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            2
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="3"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            3
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="+"
+            @click="oparatorClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            +
+          </div>
+        </div>
       </div>
-      <div id="subtract" data-value="‑" @click="oparatorClicked($event)">
-        -
-      </div>
-      <div id="four" data-value="4" @click="numberClicked($event)">
-        4
-      </div>
-      <div id="five" data-value="5" @click="numberClicked($event)">
-        5
-      </div>
-      <div id="six" data-value="6" @click="numberClicked($event)">
-        6
-      </div>
-      <div id="add" data-value="+" @click="oparatorClicked($event)">
-        +
-      </div>
-      <div id="one" data-value="1" @click="numberClicked($event)">
-        1
-      </div>
-      <div id="two" data-value="2" @click="numberClicked($event)">
-        2
-      </div>
-      <div id="three" data-value="3" @click="numberClicked($event)">
-        3
-      </div>
-      <div id="equals" data-value="=" @click="handleEvaluate($event)">
-        =
-      </div>
-      <div id="zero" data-value="0" @click="numberClicked($event)">
-        0
-      </div>
-      <div id="decimal" data-value="." @click="decimalClicked($event)">
-        .
+
+      <div class="flex items-stretch h-24 mb-4">
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="0"
+            @click="numberClicked($event)"
+            class="rounded-full h-20 w-48 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            0
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="."
+            @click="decimalClicked($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            .
+          </div>
+        </div>
+
+        <div
+          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+        >
+          <div
+            data-value="="
+            @click="handleEvaluate($event)"
+            class="rounded-full h-20 w-20 flex items-center bg-pink-500 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+          >
+            =
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -76,8 +252,8 @@ export default {
   },
   methods: {
     initialize() {
-      this.currVal = 0;
-      this.prevVal = 0;
+      this.currVal = '0';
+      this.prevVal = '0';
       this.formula = '';
       this.evaluated = false;
     },
@@ -183,78 +359,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.calculator {
-  width: 320px;
-  height: 380px;
-  background-color: black;
-
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-}
-
-.formula-screen {
-  height: 25px;
-  font-size: 1rem;
-  align-items: flex-end;
-  justify-content: flex-end;
-  display: flex;
-  color: orange;
-}
-
-.output-screen {
-  height: 30px;
-  font-size: 1.5rem;
-  align-items: flex-end;
-  justify-content: flex-end;
-  display: flex;
-}
-
-.input-screen {
-  flex: 1;
-
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 1px;
-  row-gap: 1px;
-}
-
-.input-screen > div {
-  font-size: 1.5rem;
-  background-color: #4d4d4d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-
-.input-screen > div:hover {
-  color: black;
-  border: 1px solid blanchedalmond;
-}
-
-#subtract,
-#add,
-#divide,
-#multiply {
-  background-color: rgb(102, 102, 102);
-}
-
-#equals {
-  background-color: rgb(0, 68, 102);
-  grid-column: 4/5;
-  grid-row: 4/6;
-}
-
-#clear {
-  background-color: rgb(172, 57, 57);
-  grid-column: 1/3;
-}
-
-#zero {
-  grid-column: 1/3;
-}
-</style>
