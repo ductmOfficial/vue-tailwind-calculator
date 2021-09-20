@@ -18,7 +18,7 @@
         <span class="text-pink-500 uppercase font-semibold">Calcu</span>lator
       </div>
       <div
-        class="py-3 px-5 pb-0 text-white text-right text-3xl bg-purple-800"
+        class="py-3 px-5 pb-0 text-white text-right text-2xl bg-purple-800"
         v-text="formula || '0'"
       ></div>
       <div
