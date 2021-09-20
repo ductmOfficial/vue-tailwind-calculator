@@ -1,228 +1,689 @@
 <template>
   <div
-    class="mx-auto overflow-hidden mt-10 shadow-lg mb-2 bg-purple-900 shadow-lg border rounded-lg lg:w-2/6 md:w-3/6 sm:w-4/6"
+    class="
+      mx-auto
+      overflow-hidden
+      shadow-lg
+      bg-purple-900
+      border
+      rounded-xl
+      xl:w-3/12
+      lg:w-5/12
+      md:w-6/12
+      sm:w-7/12
+    "
   >
     <div class="">
       <div class="p-5 text-white text-center text-3xl bg-purple-900">
-        <span class="text-pink-500">Calcu</span>lator
+        <span class="text-pink-500 uppercase font-semibold">Calcu</span>lator
       </div>
       <div
-        class="p-5 pb-0 text-white text-right text-2xl bg-purple-800"
-        v-text="formula"
+        class="py-3 px-5 pb-0 text-white text-right text-3xl bg-purple-800"
+        v-text="formula || '0'"
       ></div>
       <div
-        class="p-5 text-pink-500 text-right text-4xl bg-purple-800"
+        class="py-3 px-5 mb-3 text-pink-500 text-right text-4xl bg-purple-800"
         v-text="currVal"
       ></div>
 
-      <div class="flex items-stretch h-24">
+      <div class="flex items-stretch h-20">
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+          px-2
+          py-2
+          justify-center
+          flex
+          items-center
+          text-white text-2xl
+          font-semibold
+          "
         >
           <div
             data-value="AC"
             @click="initialize"
-            class="rounded-full h-20 w-72 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+            h-16
+            w-16
+            flex
+            items-center
+            bg-purple-800
+            justify-center
+            shadow-lg
+            border-2 border-purple-700
+            hover:border-2 hover:border-gray-500
+            focus:outline-none
+            "
           >
             AC
           </div>
         </div>
+        <div
+          class="
+          flex-1
+          px-2
+          py-2
+          justify-center
+          flex
+          items-center
+          text-white text-2xl
+          font-semibold
+        "
+        >
+          <div
+            class="
+            rounded-full
+            h-16
+            w-16
+            flex
+            items-center
+            bg-purple-800
+            justify-center
+            shadow-lg
+            border-2 border-purple-700
+            hover:border-2 hover:border-gray-500
+            focus:outline-none
+          "
+          >
+            (
+          </div>
+        </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+          flex-1
+          px-2
+          py-2
+          justify-center
+          flex
+          items-center
+          text-white text-2xl
+          font-semibold
+        "
+        >
+          <div
+            class="
+            rounded-full
+            h-16
+            w-16
+            flex
+            items-center
+            bg-purple-800
+            justify-center
+            shadow-lg
+            border-2 border-purple-700
+            hover:border-2 hover:border-gray-500
+            focus:outline-none
+          "
+          >
+            )
+          </div>
+        </div>
+
+        <div
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="/"
-            @click="oparatorClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            @click="operatorClicked($event)"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             ÷
           </div>
         </div>
       </div>
 
-      <div class="flex items-stretch h-24">
+      <div class="flex items-stretch h-20">
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="7"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             7
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="8"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             8
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="9"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             9
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="x"
-            @click="oparatorClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            @click="operatorClicked($event)"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             ×
           </div>
         </div>
       </div>
 
-      <div class="flex items-stretch h-24">
+      <div class="flex items-stretch h-20">
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="4"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             4
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="5"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             5
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="6"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             6
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="‑"
-            @click="oparatorClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            @click="operatorClicked($event)"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             -
           </div>
         </div>
       </div>
 
-      <div class="flex items-stretch h-24">
+      <div class="flex items-stretch h-20">
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="1"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             1
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="2"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             2
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="3"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             3
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="+"
-            @click="oparatorClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            @click="operatorClicked($event)"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             +
           </div>
         </div>
       </div>
 
-      <div class="flex items-stretch h-24 mb-4">
+      <div class="flex items-stretch h-20 mb-4">
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
+        >
+          <div
+            data-value="+"
+            @click="operatorClicked($event)"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
+          >
+            +
+          </div>
+        </div>
+        <div
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="0"
             @click="numberClicked($event)"
-            class="rounded-full h-20 w-48 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             0
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="."
             @click="decimalClicked($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-purple-800 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-purple-800
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             .
           </div>
         </div>
 
         <div
-          class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
+          class="
+            flex-1
+            px-2
+            py-2
+            justify-center
+            flex
+            items-center
+            text-white text-2xl
+            font-semibold
+          "
         >
           <div
             data-value="="
             @click="handleEvaluate($event)"
-            class="rounded-full h-20 w-20 flex items-center bg-pink-500 justify-center shadow-lg border-2 border-purple-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+            class="
+              rounded-full
+              h-16
+              w-16
+              flex
+              items-center
+              bg-pink-500
+              justify-center
+              shadow-lg
+              border-2 border-purple-700
+              hover:border-2 hover:border-gray-500
+              focus:outline-none
+            "
           >
             =
           </div>
@@ -296,7 +757,7 @@ export default {
       this.evaluated = false;
     },
 
-    oparatorClicked(e) {
+    operatorClicked(e) {
       if (this.currVal.includes(LIMIT_TEXT)) return;
 
       const value = e.target.dataset.value;
