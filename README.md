@@ -1,4 +1,4 @@
-# vue-tailwind-calculator
+# calculator
 
 ## Project setup
 ```

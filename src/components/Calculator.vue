@@ -4,7 +4,7 @@
       mx-auto
       overflow-hidden
       shadow-lg
-      bg-purple-900
+      bg-indigo-900
       border
       rounded-xl
       xl:w-3/12
@@ -14,15 +14,15 @@
     "
   >
     <div class="">
-      <div class="p-5 text-white text-center text-3xl bg-purple-900">
-        <span class="text-pink-500 uppercase font-semibold">Calcu</span>lator
+      <div class="p-5 text-white text-center text-3xl bg-indigo-900">
+        <span class="text-orange-500 uppercase font-semibold">Calcu</span>lator
       </div>
       <div
-        class="py-3 px-5 pb-0 text-white text-right text-2xl bg-purple-800"
+        class="py-3 px-5 pb-0 text-white text-right text-2xl bg-indigo-800"
         v-text="formula || '0'"
       ></div>
       <div
-        class="py-3 px-5 mb-3 text-pink-500 text-right text-4xl bg-purple-800"
+        class="py-3 px-5 mb-3 text-orange-500 text-right text-4xl bg-indigo-800"
         v-text="currVal"
       ></div>
 
@@ -48,10 +48,10 @@
             w-16
             flex
             items-center
-            bg-purple-800
+            bg-indigo-800
             justify-center
             shadow-lg
-            border-2 border-purple-700
+            border-2 border-indigo-700
             hover:border-2 hover:border-gray-500
             focus:outline-none
             "
@@ -78,10 +78,10 @@
             w-16
             flex
             items-center
-            bg-purple-800
+            bg-indigo-800
             justify-center
             shadow-lg
-            border-2 border-purple-700
+            border-2 border-indigo-700
             hover:border-2 hover:border-gray-500
             focus:outline-none
           "
@@ -109,10 +109,10 @@
             w-16
             flex
             items-center
-            bg-purple-800
+            bg-indigo-800
             justify-center
             shadow-lg
-            border-2 border-purple-700
+            border-2 border-indigo-700
             hover:border-2 hover:border-gray-500
             focus:outline-none
           "
@@ -142,10 +142,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -177,10 +177,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -210,10 +210,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -243,10 +243,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -276,10 +276,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -311,10 +311,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -344,10 +344,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -377,10 +377,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -410,10 +410,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -445,10 +445,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -478,10 +478,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -511,10 +511,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -544,10 +544,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -579,10 +579,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -611,10 +611,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -644,10 +644,10 @@
               w-16
               flex
               items-center
-              bg-purple-800
+              bg-indigo-800
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
@@ -677,10 +677,10 @@
               w-16
               flex
               items-center
-              bg-pink-500
+              bg-orange-500
               justify-center
               shadow-lg
-              border-2 border-purple-700
+              border-2 border-indigo-700
               hover:border-2 hover:border-gray-500
               focus:outline-none
             "
